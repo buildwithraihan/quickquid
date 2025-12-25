@@ -1,0 +1,194 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Inter', sans-serif;
+    color: #333;
+    line-height: 1.6;
+    overflow-x: hidden;
+}
+
+h1, h2, h3 {
+    font-family: 'Poppins', sans-serif;
+}
+
+.container {
+    max-width: 1200px;
+    margin: auto;
+    padding: 0 20px;
+}
+
+/* Header */
+header {
+    background: white;
+    padding: 20px 0;
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+    box-shadow: 0 2px 10px rgba(77,168,255,0.1);
+}
+
+.header-content {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.logo {
+    font-size: 28px;
+    font-weight: 700;
+    color: #4DA8FF;
+}
+
+.logo-icon {
+    width: 32px;
+    height: 32px;
+    background: #4DA8FF;
+    border-radius: 8px;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    color: white;
+    font-weight: 700;
+    margin-right: 8px;
+}
+
+/* Buttons */
+.btn {
+    padding: 16px 32px;
+    border-radius: 50px;
+    font-weight: 600;
+    text-decoration: none;
+    display: inline-block;
+}
+
+.btn-primary {
+    background: #4DA8FF;
+    color: white;
+}
+
+.btn-secondary {
+    border: 2px solid #4DA8FF;
+    color: #4DA8FF;
+}
+
+/* Hero */
+.hero {
+    background: linear-gradient(135deg, #EAF4FF, #ffffff);
+    padding: 90px 0;
+    text-align: center;
+    position: relative;
+}
+
+.hero h1 {
+    font-size: 56px;
+}
+
+.hero-subheadline {
+    color: #4DA8FF;
+    font-size: 24px;
+    font-weight: 600;
+}
+
+.hero-description {
+    max-width: 800px;
+    margin: 20px auto;
+    color: #555;
+}
+
+.hero-bold {
+    font-size: 20px;
+    font-weight: 600;
+}
+
+/* Sections */
+.section-title {
+    font-size: 42px;
+    text-align: center;
+    margin-bottom: 40px;
+}
+
+.about, .features {
+    padding: 80px 0;
+}
+
+.about-text {
+    background: #EAF4FF;
+    padding: 40px;
+    border-left: 5px solid #4DA8FF;
+    border-radius: 20px;
+}
+
+/* How it works */
+.how-it-works {
+    background: #EAF4FF;
+    padding: 80px 0;
+}
+
+.steps {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 30px;
+}
+
+.step-card {
+    background: white;
+    padding: 40px;
+    border-radius: 20px;
+    position: relative;
+}
+
+.step-number {
+    position: absolute;
+    top: -20px;
+    left: 30px;
+    background: #4DA8FF;
+    color: white;
+    width: 60px;
+    height: 60px;
+    border-radius: 15px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 28px;
+}
+
+/* Week One */
+.week-one {
+    background: linear-gradient(135deg, #4DA8FF, #3d96e8);
+    color: white;
+    padding: 80px 0;
+    text-align: center;
+}
+
+.week-one-statement {
+    font-size: 22px;
+    margin-top: 20px;
+}
+
+/* Footer */
+footer {
+    background: #0f172a;
+    color: white;
+    padding: 40px 0;
+    text-align: center;
+}
+
+.footer-links a {
+    color: #4DA8FF;
+    text-decoration: none;
+    margin: 0 8px;
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+    .hero h1 {
+        font-size: 36px;
+    }
+    .section-title {
+        font-size: 32px;
+    }
+}
