@@ -1,0 +1,709 @@
+
+ <!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>QuickQuid - The Operating System for the Student Economy</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Inter', sans-serif;
+            color: #333;
+            line-height: 1.6;
+            overflow-x: hidden;
+        }
+
+        h1, h2, h3, h4 {
+            font-family: 'Poppins', sans-serif;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        /* Header */
+        header {
+            background: white;
+            padding: 20px 0;
+            box-shadow: 0 2px 10px rgba(77, 168, 255, 0.1);
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+        }
+
+        .header-content {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo {
+            font-size: 28px;
+            font-weight: 700;
+            color: #4DA8FF;
+            font-family: 'Poppins', sans-serif;
+        }
+
+        .logo-icon {
+            display: inline-block;
+            width: 32px;
+            height: 32px;
+            background: #4DA8FF;
+            border-radius: 8px;
+            margin-right: 8px;
+            vertical-align: middle;
+            position: relative;
+        }
+
+        .logo-icon::before {
+            content: "Q";
+            position: absolute;
+            color: white;
+            font-weight: 700;
+            font-size: 20px;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+        }
+
+        /* Hero Section */
+        .hero {
+            background: linear-gradient(135deg, #EAF4FF 0%, #ffffff 100%);
+            padding: 80px 0 100px;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .hero::before {
+            content: "";
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            height: 150px;
+            background: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 120"><path d="M0,60 Q300,0 600,60 T1200,60 L1200,120 L0,120 Z" fill="%23ffffff"/></svg>') no-repeat bottom;
+            background-size: cover;
+        }
+
+        .hero-content {
+            text-align: center;
+            position: relative;
+            z-index: 1;
+        }
+
+        .hero-badge {
+            display: inline-block;
+            background: white;
+            padding: 8px 20px;
+            border-radius: 50px;
+            font-size: 14px;
+            font-weight: 600;
+            color: #4DA8FF;
+            margin-bottom: 20px;
+            box-shadow: 0 4px 15px rgba(77, 168, 255, 0.2);
+        }
+
+        .hero h1 {
+            font-size: 56px;
+            font-weight: 700;
+            color: #1a1a1a;
+            margin-bottom: 20px;
+            line-height: 1.2;
+        }
+
+        .hero-subheadline {
+            font-size: 24px;
+            color: #4DA8FF;
+            font-weight: 600;
+            margin-bottom: 20px;
+        }
+
+        .hero-description {
+            font-size: 18px;
+            color: #555;
+            max-width: 800px;
+            margin: 0 auto 30px;
+            line-height: 1.8;
+        }
+
+        .hero-bold {
+            font-size: 20px;
+            font-weight: 600;
+            color: #1a1a1a;
+            margin: 30px 0;
+        }
+
+        .cta-buttons {
+            display: flex;
+            gap: 20px;
+            justify-content: center;
+            margin-top: 40px;
+            flex-wrap: wrap;
+        }
+
+        .btn {
+            padding: 16px 32px;
+            border-radius: 50px;
+            font-size: 16px;
+            font-weight: 600;
+            text-decoration: none;
+            transition: all 0.3s ease;
+            border: none;
+            cursor: pointer;
+            display: inline-block;
+        }
+
+        .btn-primary {
+            background: #4DA8FF;
+            color: white;
+            box-shadow: 0 4px 20px rgba(77, 168, 255, 0.4);
+        }
+
+        .btn-primary:hover {
+            background: #3d96e8;
+            transform: translateY(-2px);
+            box-shadow: 0 6px 25px rgba(77, 168, 255, 0.5);
+        }
+
+        .btn-secondary {
+            background: white;
+            color: #4DA8FF;
+            border: 2px solid #4DA8FF;
+        }
+
+        .btn-secondary:hover {
+            background: #EAF4FF;
+            transform: translateY(-2px);
+        }
+
+        /* Decorative elements */
+        .hero-decoration {
+            position: absolute;
+            opacity: 0.1;
+        }
+
+        .decoration-book {
+            top: 10%;
+            left: 5%;
+            font-size: 80px;
+        }
+
+        .decoration-pencil {
+            top: 20%;
+            right: 8%;
+            font-size: 60px;
+            transform: rotate(25deg);
+        }
+
+        .decoration-cap {
+            bottom: 15%;
+            left: 10%;
+            font-size: 70px;
+        }
+
+        /* About Section */
+        .about {
+            padding: 80px 0;
+            background: white;
+        }
+
+        .about-content {
+            max-width: 900px;
+            margin: 0 auto;
+            text-align: center;
+        }
+
+        .section-title {
+            font-size: 42px;
+            font-weight: 700;
+            color: #1a1a1a;
+            margin-bottom: 30px;
+        }
+
+        .about-text {
+            font-size: 18px;
+            color: #555;
+            line-height: 1.9;
+            background: #EAF4FF;
+            padding: 40px;
+            border-radius: 20px;
+            border-left: 5px solid #4DA8FF;
+        }
+
+        /* How It Works */
+        .how-it-works {
+            padding: 80px 0;
+            background: #EAF4FF;
+        }
+
+        .how-it-works .section-title {
+            text-align: center;
+            margin-bottom: 60px;
+        }
+
+        .steps {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 40px;
+        }
+
+        .step-card {
+            background: white;
+            padding: 40px;
+            border-radius: 20px;
+            box-shadow: 0 5px 20px rgba(77, 168, 255, 0.15);
+            position: relative;
+            transition: transform 0.3s ease;
+        }
+
+        .step-card:hover {
+            transform: translateY(-5px);
+        }
+
+        .step-number {
+            position: absolute;
+            top: -20px;
+            left: 40px;
+            background: #4DA8FF;
+            color: white;
+            width: 60px;
+            height: 60px;
+            border-radius: 15px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 28px;
+            font-weight: 700;
+            box-shadow: 0 4px 15px rgba(77, 168, 255, 0.4);
+        }
+
+        .step-card h3 {
+            font-size: 24px;
+            color: #1a1a1a;
+            margin: 30px 0 15px;
+        }
+
+        .step-card p {
+            color: #666;
+            font-size: 16px;
+        }
+
+        /* What You Can Do */
+        .features {
+            padding: 80px 0;
+            background: white;
+        }
+
+        .features .section-title {
+            text-align: center;
+            margin-bottom: 60px;
+        }
+
+        .feature-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 30px;
+        }
+
+        .feature-card {
+            background: #EAF4FF;
+            padding: 40px 30px;
+            border-radius: 20px;
+            text-align: center;
+            transition: all 0.3s ease;
+            border: 3px solid transparent;
+        }
+
+        .feature-card:hover {
+            border-color: #4DA8FF;
+            transform: translateY(-5px);
+            box-shadow: 0 8px 25px rgba(77, 168, 255, 0.2);
+        }
+
+        .feature-icon {
+            font-size: 48px;
+            margin-bottom: 20px;
+        }
+
+        .feature-card h3 {
+            font-size: 20px;
+            color: #1a1a1a;
+            margin-bottom: 10px;
+        }
+
+        .feature-card p {
+            color: #666;
+            font-size: 15px;
+        }
+
+        /* Why QuickQuid */
+        .why-section {
+            padding: 80px 0;
+            background: #EAF4FF;
+        }
+
+        .why-section .section-title {
+            text-align: center;
+            margin-bottom: 60px;
+        }
+
+        .why-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 30px;
+        }
+
+        .why-card {
+            background: white;
+            padding: 40px;
+            border-radius: 20px;
+            box-shadow: 0 5px 20px rgba(77, 168, 255, 0.15);
+        }
+
+        .why-card h3 {
+            font-size: 22px;
+            color: #4DA8FF;
+            margin-bottom: 15px;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .why-card h3::before {
+            content: "✓";
+            background: #4DA8FF;
+            color: white;
+            width: 30px;
+            height: 30px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 18px;
+            flex-shrink: 0;
+        }
+
+        .why-card p {
+            color: #666;
+            font-size: 16px;
+        }
+
+        /* Week One Value */
+        .week-one {
+            background: linear-gradient(135deg, #4DA8FF 0%, #3d96e8 100%);
+            padding: 80px 0;
+            text-align: center;
+            color: white;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .week-one::before {
+            content: "📚";
+            position: absolute;
+            font-size: 200px;
+            opacity: 0.1;
+            top: 50%;
+            left: 10%;
+            transform: translateY(-50%) rotate(-15deg);
+        }
+
+        .week-one::after {
+            content: "🎓";
+            position: absolute;
+            font-size: 180px;
+            opacity: 0.1;
+            top: 50%;
+            right: 10%;
+            transform: translateY(-50%) rotate(15deg);
+        }
+
+        .week-one-content {
+            max-width: 800px;
+            margin: 0 auto;
+            position: relative;
+            z-index: 1;
+        }
+
+        .week-one h2 {
+            font-size: 36px;
+            margin-bottom: 20px;
+            font-weight: 700;
+        }
+
+        .week-one-statement {
+            font-size: 22px;
+            line-height: 1.7;
+            background: rgba(255, 255, 255, 0.15);
+            padding: 30px;
+            border-radius: 15px;
+            backdrop-filter: blur(10px);
+        }
+
+        /* Final CTA */
+        .final-cta {
+            padding: 100px 0;
+            background: white;
+            text-align: center;
+        }
+
+        .final-cta h2 {
+            font-size: 40px;
+            color: #1a1a1a;
+            margin-bottom: 20px;
+        }
+
+        .final-cta p {
+            font-size: 20px;
+            color: #555;
+            margin-bottom: 40px;
+        }
+
+        /* Footer */
+        footer {
+            background: #1a1a1a;
+            color: white;
+            padding: 40px 0;
+            text-align: center;
+        }
+
+        .footer-content {
+            font-size: 14px;
+        }
+
+        .footer-content p {
+            margin-bottom: 15px;
+        }
+
+        .footer-links {
+            display: flex;
+            gap: 20px;
+            justify-content: center;
+            margin-top: 15px;
+        }
+
+        .footer-links a {
+            color: #4DA8FF;
+            text-decoration: none;
+            transition: color 0.3s ease;
+        }
+
+        .footer-links a:hover {
+            color: #EAF4FF;
+        }
+
+        /* Responsive */
+        @media (max-width: 768px) {
+            .hero h1 {
+                font-size: 36px;
+            }
+
+            .hero-subheadline {
+                font-size: 20px;
+            }
+
+            .hero-description {
+                font-size: 16px;
+            }
+
+            .section-title {
+                font-size: 32px;
+            }
+
+            .cta-buttons {
+                flex-direction: column;
+                align-items: center;
+            }
+
+            .btn {
+                width: 100%;
+                max-width: 300px;
+            }
+
+            .steps, .feature-grid, .why-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Header -->
+    <header>
+        <div class="container">
+            <div class="header-content">
+                <div class="logo">
+                    <span class="logo-icon"></span>
+                    QuickQuid
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <!-- Hero Section -->
+    <section class="hero">
+        <div class="hero-decoration decoration-book">📚</div>
+        <div class="hero-decoration decoration-pencil">✏️</div>
+        <div class="hero-decoration decoration-cap">🎓</div>
+        
+        <div class="container">
+            <div class="hero-content">
+                <div class="hero-badge">For Students, By Students</div>
+                <h1>The Operating System for the Student Economy</h1>
+                <p class="hero-subheadline">Trusted. Verified. Local.</p>
+                <p class="hero-description">
+                    Students deserve a safe, fair platform to earn real money without paying commissions.
+                    QuickQuid connects verified college students with alumni, local businesses, and peers for skills, tutoring, products, and team opportunities—all in one place.
+                </p>
+                <p class="hero-bold">Earn 100% of your money. Build your reputation. Get discovered.</p>
+                <div class="cta-buttons">
+                    <a href="#waitlist" class="btn btn-primary">Join Your College Waitlist</a>
+                    <a href="#how-it-works" class="btn btn-secondary">See How It Works</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- About Section -->
+    <section class="about">
+        <div class="container">
+            <div class="about-content">
+                <h2 class="section-title">About QuickQuid</h2>
+                <div class="about-text">
+                    QuickQuid is a college-only marketplace built to power local student economies. It enables verified students to turn skills, knowledge, and initiative into real opportunities—without commissions or platform complexity. By keeping access limited to verified college communities, QuickQuid creates a trusted environment where students can earn, collaborate, and build reputation from day one.
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- How It Works -->
+    <section class="how-it-works" id="how-it-works">
+        <div class="container">
+            <h2 class="section-title">How It Works</h2>
+            <div class="steps">
+                <div class="step-card">
+                    <div class="step-number">01</div>
+                    <h3>Verify Your College</h3>
+                    <p>Join with your .edu email and become part of your trusted campus community. Access is limited to verified students only.</p>
+                </div>
+                <div class="step-card">
+                    <div class="step-number">02</div>
+                    <h3>List or Discover Opportunities</h3>
+                    <p>Post your skills, tutoring services, products, or browse what others offer. Connect with peers, alumni, and local businesses.</p>
+                </div>
+                <div class="step-card">
+                    <div class="step-number">03</div>
+                    <h3>Earn & Build Reputation</h3>
+                    <p>Keep 100% of what you earn. Build your profile and reputation within your college community as you grow.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- What You Can Do -->
+    <section class="features">
+        <div class="container">
+            <h2 class="section-title">What You Can Do on QuickQuid</h2>
+            <div class="feature-grid">
+                <div class="feature-card">
+                    <div class="feature-icon">💼</div>
+                    <h3>Sell Skills</h3>
+                    <p>Offer your expertise in design, coding, writing, or any talent you have</p>
+                </div>
+                <div class="feature-card">
+                    <div class="feature-icon">📖</div>
+                    <h3>Tutor Peers</h3>
+                    <p>Help classmates with subjects you excel at and earn while you teach</p>
+                </div>
+                <div class="feature-card">
+                    <div class="feature-icon">🛍️</div>
+                    <h3>Offer Products or Services</h3>
+                    <p>Sell handmade items, tickets, or provide campus services</p>
+                </div>
+                <div class="feature-card">
+                    <div class="feature-icon">🤝</div>
+                    <h3>Find Teammates</h3>
+                    <p>Connect with peers for projects, startups, or study groups</p>
+                </div>
+                <div class="feature-card">
+                    <div class="feature-icon">🎯</div>
+                    <h3>Work with Alumni & Local Businesses</h3>
+                    <p>Access opportunities from trusted alumni and nearby companies</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Why QuickQuid -->
+    <section class="why-section">
+        <div class="container">
+            <h2 class="section-title">Why QuickQuid?</h2>
+            <div class="why-grid">
+                <div class="why-card">
+                    <h3>No Commissions</h3>
+                    <p>Keep 100% of what you earn. We don't take a cut because your money is yours.</p>
+                </div>
+                <div class="why-card">
+                    <h3>Verified Students Only</h3>
+                    <p>Everyone on the platform is verified with a college email. Trust built in from day one.</p>
+                </div>
+                <div class="why-card">
+                    <h3>Local Campus Opportunities</h3>
+                    <p>Connect with peers, alumni, and businesses in your actual college community.</p>
+                </div>
+                <div class="why-card">
+                    <h3>Safer Than Social Media</h3>
+                    <p>No more sketchy WhatsApp groups or Instagram DM deals. Everything in one trusted place.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Week One Value -->
+    <section class="week-one">
+        <div class="container">
+            <div class="week-one-content">
+                <h2>Our Week-One Promise</h2>
+                <p class="week-one-statement">
+                    "If students don't earn, learn, or connect within their first week, the platform has failed."
+                </p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Final CTA -->
+    <section class="final-cta" id="waitlist">
+        <div class="container">
+            <h2>Your Skills Already Have Value</h2>
+            <p>Now give them the right marketplace.</p>
+            <a href="#" class="btn btn-primary">Join the QuickQuid Waitlist</a>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <div class="container">
+            <div class="footer-content">
+                <p><strong>QuickQuid</strong> © 2025 Built for students, by students</p>
+                <div class="footer-links">
+                    <a href="#">Privacy</a>
+                    <span style="color: #666;">•</span>
+                    <a href="#">Terms</a>
+                    <span style="color: #666;">•</span>
+                    <a href="#">Contact</a>
+                </div>
+            </div>
+        </div>
+    </footer>
+</body>
+</html>
